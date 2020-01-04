@@ -1,0 +1,85 @@
+.ignielPelangi {
+    background: linear-gradient(90deg,  #5868ec, #f54e80); /*#f22613, #f89406, #26a65b, #5868ec, #f54e80, #f7ca18, #d2527f*/
+    background-size: 500% 500%;
+    -webkit-animation: ignielGradient 12s ease infinite;
+    -moz-animation: ignielGradient 12s ease infinite;
+    animation: ignielGradient 12s ease infinite;
+}
+@-webkit-keyframes ignielGradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes ignielGradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes ignielGradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+#header {
+  background: #ff000; /* bisa juga menggunakan property 'background-color' */
+  position: relative;
+  display: block
+}
+
+/* ATAU */
+
+.header {
+  background: #ff000; /* bisa juga menggunakan property 'background-color' */
+  position: relative;
+  display: block
+}
+
+.posisi{
+  text-align: center;
+  margin-top: 10%;
+}
+
+#username{
+box-shadow: none;
+    margin-top: 1px;
+    height: 50px;
+    border: 0px;
+    border-bottom: 1px solid #6a82fb;
+    background: transparent;
+}
+
+#password{
+box-shadow: none;
+    margin-top: 1px;
+    height: 50px;
+    border: 0px;
+    border-bottom: 1px solid #6a82fb;
+    background: transparent;
+}
+
+.input-group-text{
+  box-shadow: none;
+    margin-top: 1px;
+    height: 50px;
+    border: 0px;
+    border-bottom: 1px solid #6a82fb;
+    background: transparent;
+    color: #f54e80;
+}
+
+.posisi #footer{
+  border: 0px;
+}
+
+.posisi #header{
+  border: 0px;
+}
+
+.posisi #icon{
+  border: 0px;
+}
+
+.btn{
+  color: #5868ec;
+}
