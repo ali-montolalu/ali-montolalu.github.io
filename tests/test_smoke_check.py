@@ -1351,6 +1351,13 @@ class R14PhraseConfig(unittest.TestCase):
         import json
         return json.load(open(sc.PAIR_CONFIG, encoding="utf-8"))
 
+    def with_events(self):
+        """Production config plus a test-only event list (production has no event pages since 2026-10-12)."""
+        import copy
+        c = self.base()
+        c["event_times"]["about"] = copy.deepcopy(R13PairRobustness.EV["event_times"]["about"])
+        return c
+
     def bad(self, cfg, msg):
         with self.assertRaises(sc.PairConfigError) as cm:
             self.load(cfg)
@@ -1364,7 +1371,7 @@ class R14PhraseConfig(unittest.TestCase):
         c = self.base(); c["required_phrases"]["about"] = []; self.bad(c, "required_phrases['about']")
         c = self.base(); del c["required_phrases"]; self.bad(c, "required_phrases")
         c = self.base(); c["profile_hosts"] = []; self.bad(c, "profile_hosts")
-        c = self.base(); c["event_times"]["about"] = []; self.bad(c, "event_times['about']")
+        c = self.with_events(); c["event_times"]["about"] = []; self.bad(c, "event_times['about']")   # empty list still rejected
 
     def test_empty_variant_lists_rejected(self):
         c = self.base(); c["required_phrases"]["home"][0] = {"pairs": []}; self.bad(c, "pairs")
@@ -1381,22 +1388,23 @@ class R14PhraseConfig(unittest.TestCase):
         self.assertFalse(sc.phrase_long_enough("abc 1234"))
 
     def test_event_pattern_validation(self):
-        c = self.base(); c["event_times"]["about"][0]["en"] = "review starts at"; self.bad(c, "{T}")
-        c = self.base(); c["event_times"]["about"][0]["zh"] = "{T}{T}"; self.bad(c, "{T}")
-        c = self.base(); c["event_times"]["about"][0]["zh"] = "({T}"; self.bad(c, "not a valid regex")
-        c = self.base(); c["event_times"]["about"][0]["event"] = ""; self.bad(c, "event")
+        c = self.with_events(); c["event_times"]["about"][0]["en"] = "review starts at"; self.bad(c, "{T}")
+        c = self.with_events(); c["event_times"]["about"][0]["zh"] = "{T}{T}"; self.bad(c, "{T}")
+        c = self.with_events(); c["event_times"]["about"][0]["zh"] = "({T}"; self.bad(c, "not a valid regex")
+        c = self.with_events(); c["event_times"]["about"][0]["event"] = ""; self.bad(c, "event")
 
 
 class R15Floors(unittest.TestCase):
     load = R14PhraseConfig.load
     base = R14PhraseConfig.base
+    with_events = R14PhraseConfig.with_events
     bad = R14PhraseConfig.bad
     def test_capture_group_patterns_rejected(self):
-        c = self.base(); c["event_times"]["about"][0]["en"] = "(review starts) at {T}"
+        c = self.with_events(); c["event_times"]["about"][0]["en"] = "(review starts) at {T}"
         self.bad(c, "capture groups besides {T}")
-        c = self.base(); c["event_times"]["about"][0]["zh"] = "(?P<x>每日) {T}\\s*开审"
+        c = self.with_events(); c["event_times"]["about"][0]["zh"] = "(?P<x>每日) {T}\\s*开审"
         self.bad(c, "capture groups besides {T}")
-        c = self.base(); c["event_times"]["about"][0]["en"] = "(?:review|Review) starts at {T}"
+        c = self.with_events(); c["event_times"]["about"][0]["en"] = "(?:review|Review) starts at {T}"
         self.load(c)    # non-capturing groups are fine
 
     def test_capture_group_pattern_does_not_crash_at_runtime(self):
@@ -1406,7 +1414,7 @@ class R15Floors(unittest.TestCase):
     def test_capture_group_config_reported_by_main(self):
         import io, contextlib, json, tempfile, os
         from unittest import mock
-        c = self.base(); c["event_times"]["about"][0]["en"] = "(review starts) at {T}"
+        c = self.with_events(); c["event_times"]["about"][0]["en"] = "(review starts) at {T}"
         with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False) as f:
             json.dump(c, f)
         out = io.StringIO()
@@ -1427,8 +1435,15 @@ class R15Floors(unittest.TestCase):
         self.bad(c, "below the floor of 2")
 
     def test_event_floor(self):
-        c = self.base(); c["event_times"]["about"] = [e for e in c["event_times"]["about"] if e["event"] != "publish"]
-        self.bad(c, "missing event(s) ['publish']")
+        # No page keeps an event floor since the about page dropped its schedule (2026-10-12):
+        # the production config has no about events and loads; an empty event_times is accepted.
+        self.assertEqual(sc.REQUIRED_EVENT_PAGES, ())
+        self.assertEqual(sc.REQUIRED_EVENTS, {})
+        c = self.base()
+        self.assertNotIn("about", c["event_times"])
+        self.assertEqual(self.load(c)["event_times"], {})
+        c["event_times"] = {}; self.load(c)
+        del c["event_times"]; self.bad(c, "event_times must be an object")
 
     def test_profile_host_floor(self):
         c = self.base(); c["profile_hosts"] = ["x.com"]
@@ -1522,10 +1537,10 @@ class PairKeyInfo(unittest.TestCase):
 
     ZH_ABOUT = ("<p>markjin 的定位是“统一系统观在 AI 辅助加持下的认知实践与自我进化”。</p>"
                 "<p>每日 06:30 开审，07:00 前发布（SGT）；改进提案每周一 10:00 审核。</p>"
-                "<p>联系：markjin@mail.grokbot.com</p>")
+                "<p>联系：contact@example.com</p>")
     EN_ABOUT = ("<p>markjin's positioning is cognitive practice and self-evolution of the Unified Systems View.</p>"
                 "<p>Daily review starts at 06:30 and posts publish before 07:00 (SGT); proposals every Monday at 10:00.</p>"
-                "<p>Contact: markjin@mail.grokbot.com</p>")
+                "<p>Contact: contact@example.com</p>")
 
     def run_pair(self, zh, en, name="about"):
         return sc.compare_pair(name, page(zh), page(en, "en"), self.CFG)
@@ -1597,7 +1612,7 @@ class PairKeyInfo(unittest.TestCase):
         self.assertTrue(sc.compare_pair("none", zh, en, self.CFG)["pair_profiles"]["ok"])
 
     def test_email_mismatch_fails(self):
-        r = self.run_pair(self.ZH_ABOUT, self.EN_ABOUT.replace("markjin@mail.grokbot.com", "old@example.com"))
+        r = self.run_pair(self.ZH_ABOUT, self.EN_ABOUT.replace("contact@example.com", "old@example.com"))
         self.assertFalse(r["pair_emails"]["ok"])
 
     def test_mailto_counts_as_email(self):
@@ -1670,3 +1685,123 @@ class Disclaimer(SiteBase):
         d = os.path.join(os.path.dirname(__file__), "fixtures")
         self.assertEqual(sc.last_body_paragraph(open(os.path.join(d, "sample-daily.zh.html"), encoding="utf-8").read()), self.ZH)
         self.assertEqual(sc.last_body_paragraph(open(os.path.join(d, "sample-daily.en.html"), encoding="utf-8").read()), self.EN)
+
+
+class R16AboutOneLiner(unittest.TestCase):
+    """About page reduced to one positioning line (decision 2026-10-12 06:28 SGT)."""
+    ZH = "统一系统观在AI辅助加持下的认知实践与自我进化。"
+    EN = "Cognitive practice and self-evolution of the Unified Systems View, augmented by AI assistance."
+
+    def html(self, lang, text, sw):
+        return ("<html lang=%s><body><span class=lang><a href='%s'>X</a></span><main><p>%s</p></main>"
+                "<footer>%s</footer></body></html>" % (lang, sw, text, R17FooterDisclaimer.FOOTER["zh" if lang.startswith("zh") else "en"]))
+
+    def run_page(self, pages, lang, path):
+        from unittest import mock
+        def fake(url, want_body=True, retries=2):
+            return pages.get(url, (404, None))
+        with mock.patch.object(sc, "fetch", fake):
+            return sc.check_page("https://s.test/", lang, path, {}, "about")
+
+    def pages(self):
+        return {"https://s.test/about/": (200, self.html("zh-CN", self.ZH, "/en/about/")),
+                "https://s.test/en/about/": (200, self.html("en", self.EN, "/about/"))}
+
+    def test_short_about_passes_both_langs(self):
+        for lang, path in (("zh", "/about/"), ("en", "/en/about/")):
+            r = self.run_page(self.pages(), lang, path)
+            self.assertTrue(r["checks"]["body_language"]["ok"], r["checks"]["body_language"])
+            self.assertNotIn("exemption", r["checks"]["body_language"]["detail"])
+            self.assertFalse(r.get("review"))
+            self.assertTrue(r["pass"], r["checks"])
+        self.assertNotIn("about", sc.MIN_LETTERS)
+
+    def test_about_keeps_lang_switch_and_html_lang(self):
+        p = self.pages()
+        p["https://s.test/about/"] = (200, self.html("en", self.ZH, "/en/wrong/"))
+        r = self.run_page(p, "zh", "/about/")
+        self.assertFalse(r["checks"]["html_lang"]["ok"])
+        self.assertFalse(r["checks"]["lang_switch"]["ok"])
+        self.assertFalse(r["pass"])
+
+    def test_about_keeps_link_check(self):
+        p = self.pages()
+        p["https://s.test/about/"] = (200, self.html("zh-CN", self.ZH + "<a href='/gone/'>g</a>", "/en/about/"))
+        r = self.run_page(p, "zh", "/about/")
+        self.assertFalse(r["pass"])
+
+    def test_en_about_with_chinese_fails_language(self):
+        p = self.pages()
+        p["https://s.test/en/about/"] = (200, self.html("en",
+            "统一系统观在AI辅助加持下的认知实践与自我进化。 Unified Systems View cognitive practice and self-evolution", "/about/"))
+        r = self.run_page(p, "en", "/en/about/")
+        self.assertFalse(r["checks"]["body_language"]["ok"], r["checks"]["body_language"])
+        self.assertFalse(r["pass"])
+
+    def test_zh_about_in_english_fails_language(self):
+        p = self.pages()
+        p["https://s.test/about/"] = (200, self.html("zh-CN", self.EN, "/en/about/"))
+        r = self.run_page(p, "zh", "/about/")
+        self.assertFalse(r["checks"]["body_language"]["ok"])
+
+    def test_about_empty_main_still_fails(self):
+        p = self.pages()
+        p["https://s.test/about/"] = (200, self.html("zh-CN", "", "/en/about/"))
+        r = self.run_page(p, "zh", "/about/")
+        self.assertFalse(r["checks"]["body_language"]["ok"])
+
+    def test_repo_pair_config_and_pair_check(self):
+        cfg = sc.load_pair_config()
+        self.assertNotIn("about", cfg["event_times"])
+        r = sc.compare_pair("about", self.html("zh-CN", self.ZH, "/en/about/"),
+                            self.html("en", self.EN, "/about/"), cfg)
+        self.assertTrue(all(v["ok"] for v in r.values()), r)
+
+    def test_repo_about_content_is_one_line(self):
+        import os
+        root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        for fn, line in (("about.md", self.ZH), ("about.en.md", self.EN)):
+            body = open(os.path.join(root, "content", fn), encoding="utf-8").read().split("---", 2)[2].strip()
+            self.assertEqual(body, line)
+
+
+class R17FooterDisclaimer(unittest.TestCase):
+    """Global footer carries a site-wide disclaimer (2026-10-12 06:37, wording 06:45); it never counts as the article's."""
+    FOOTER = {"zh": "本站内容不构成投资建议。", "en": "Content on this site does not constitute investment advice."}
+    def doc(self, lang, main):
+        return ("<html lang=%s><body><main><article>%s</article></main><footer>%s</footer></body></html>"
+                % (lang, main, self.FOOTER["zh" if lang.startswith("zh") else "en"]))
+
+    def test_footer_never_satisfies_disclaimer(self):
+        for lang, k in (("zh-CN", "zh"), ("en", "en")):
+            h = ("<html lang=%s><body><main><article><p>x</p></article></main><footer><p>%s</p></footer></body></html>"
+                 % (lang, sc.DISCLAIMER[k]))
+            self.assertEqual(sc.last_body_paragraph(h), "x")
+
+    def test_footer_does_not_satisfy_disclaimer(self):
+        self.assertEqual(sc.last_body_paragraph(self.doc("zh-CN", "<p>正文一段。</p>")), "正文一段。")
+        self.assertEqual(sc.last_body_paragraph(self.doc("en", "<p>Body text.</p>")), "Body text.")
+
+    def test_article_disclaimer_still_found_with_footer(self):
+        for lang, k in (("zh-CN", "zh"), ("en", "en")):
+            h = self.doc(lang, "<p>x</p><p>%s</p>" % sc.DISCLAIMER[k])
+            self.assertEqual(sc.last_body_paragraph(h), sc.DISCLAIMER[k])
+
+    def test_footer_not_in_language_ratio(self):
+        body = "<p>这是一段中文正文，用来计算比例。</p>"
+        with_f = sc.body_language_ratio(self.doc("zh-CN", body), "zh")
+        no_f = sc.body_language_ratio("<html lang=zh-CN><body><main><article>%s</article></main></body></html>" % body, "zh")
+        self.assertEqual(with_f["letters"], no_f["letters"])
+        self.assertEqual(with_f["raw_letters"], no_f["raw_letters"])
+        en = sc.body_language_ratio(self.doc("en", "<p>English body only.</p>"), "en")
+        self.assertEqual(en["raw_letters"], len("Englishbodyonly"))
+
+    def test_i18n_footer_matches_site_disclaimer(self):
+        import os, re
+        root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        for k in ("zh", "en"):
+            s = open(os.path.join(root, "i18n", k + ".toml"), encoding="utf-8").read()
+            self.assertEqual(re.search(r'^footer_disclaimer = "(.*)"$', s, re.M).group(1), self.FOOTER[k])
+            self.assertNotEqual(self.FOOTER[k], sc.DISCLAIMER[k])
+            self.assertNotIn("footer_principle", s)
+            self.assertNotIn("@", s)

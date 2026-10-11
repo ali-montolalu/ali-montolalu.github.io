@@ -182,7 +182,7 @@ def css_urls(css):
 
 
 MAX_STRIP_FRAC = 0.60          # FAIL if stripping would remove more than this share of letters
-MIN_LETTERS = {"daily": 800, "about": 100}
+MIN_LETTERS = {"daily": 800}   # about has no minimum letter count; its language ratio is still checked
 
 
 def is_letter(c):
@@ -226,7 +226,7 @@ def body_language_ratio(html, lang):
 
 
 def judge_language(info, lang, page_type):
-    """Not applied to home pages (see check_page). Return (status, detail); status is 'ok', 'fail' or 'review'."""
+    """Not applied to home pages (see check_page); about has no letter minimum (MIN_LETTERS). Return (status, detail); status is 'ok', 'fail' or 'review'."""
     need = ">=0.30" if lang == "zh" else "<=0.05"
     detail = "CJK ratio before stripping %.2f over %d letters; after %.2f over %d letters; stripped %.0f%% (need %s, strip cap %.0f%%, min %d letters for %s)" % (
         info["raw_ratio"], info["raw_letters"], info["ratio"], info["letters"],
@@ -1026,8 +1026,8 @@ class PairConfigError(Exception):
 # ---- floors fixed in code: a config below any floor is a CONFIG ERROR (FAIL) ----
 REQUIRED_PHRASE_PAGES = ("home", "about")
 MIN_PHRASES = {"home": 2, "about": 2}                   # minimum number of phrase items per page
-REQUIRED_EVENT_PAGES = ("about",)
-REQUIRED_EVENTS = {"about": ("review starts", "publish", "Monday proposal review")}
+REQUIRED_EVENT_PAGES = ()   # about no longer lists times (one-line page since 2026-10-12)
+REQUIRED_EVENTS = {}
 REQUIRED_PROFILE_HOSTS = ("x.com", "github.com")
 FLOOR_SITEMAPS = ("/sitemap.xml", "/zh/sitemap.xml", "/en/sitemap.xml")
 FLOOR_MIN_PAGES = {"daily": 1}

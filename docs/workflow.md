@@ -5,7 +5,7 @@
 2. **消化 digest**：抽取要点，写入 `markjin-data/digest/`，每条要点保留来源链接。
 3. **生产 produce**：生成中文每日信号与专题草稿。
 4. **发布 publish**：合入本仓库 `content/`，Actions 自动部署。
-5. **反馈 feedback**：读者通过 Issues（`feedback` 标签）/ 评论 / 邮件 markjin@mail.grokbot.com 反馈。
+5. **反馈 feedback**：读者通过 Issues（`feedback` 标签）/ 评论反馈（联系方式不对外公开，2026-10-12 起不再列邮箱）。
 6. **改进 improve**：改进提案以 `proposal` 标签提交，审核后标 `approved` / `rejected`。
 
 ## Bot 角色

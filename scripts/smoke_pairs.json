@@ -31,29 +31,5 @@
       }
     ]
   },
-  "event_times": {
-    "about": [
-      {
-        "event": "review starts",
-        "zh": "{T}\\s*开审",
-        "en": [
-          "review starts at {T}",
-          "review (?:begins|starts) at {T}"
-        ]
-      },
-      {
-        "event": "publish",
-        "zh": "{T}\\s*(?:前)?发布",
-        "en": [
-          "published (?:at|by|before) {T}",
-          "publish(?:es)? (?:at|by|before) {T}"
-        ]
-      },
-      {
-        "event": "Monday proposal review",
-        "zh": "每周一\\s*{T}",
-        "en": "every Monday at {T}"
-      }
-    ]
-  }
+  "event_times": {}
 }
