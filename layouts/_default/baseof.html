@@ -1,6 +1,6 @@
 <!doctype html><html lang="{{ i18n "html_lang" }}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<script>(function(d){var t;try{t=localStorage.getItem("theme")}catch(e){}if(t!=="light"&&t!=="dark"){t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}d.setAttribute("data-theme",t)})(document.documentElement)</script>
+<script>(function(d){var t;try{t=localStorage.getItem("theme")}catch(e){}if(t==="light"||t==="dark"){d.setAttribute("data-theme",t);d.setAttribute("data-theme-pref",t)}else{d.setAttribute("data-theme-pref","system")}})(document.documentElement)</script>
 <title>{{ if not .IsHome }}{{ .Title }} · {{ end }}{{ .Site.Title }}</title>
 {{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}">{{ end }}
 {{ range .AllTranslations }}<link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .Permalink }}">{{ end }}

@@ -1,5 +1,7 @@
 /* 明暗主题切换（无第三方依赖）。三态：跟随系统 → 亮 → 暗 → 跟随系统。
-   首屏的 data-theme 已由 <head> 里的内联脚本设好；这里只负责按钮、记忆和 giscus。 */
+   首屏由 <head> 里的内联脚本设好：选了亮/暗才写 data-theme；跟随系统时不写 data-theme，
+   完全交给 CSS 的 prefers-color-scheme 媒体查询，所以系统切换即时生效，即使本脚本没加载也不会被钉死。
+   这里只负责按钮、记忆、跨标签页同步和 giscus。 */
 (function () {
   var KEY = "theme", root = document.documentElement;
   var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
@@ -17,8 +19,7 @@
   }
   var btn = document.getElementById("theme-toggle");
   function render() {
-    var eff = effective();
-    root.setAttribute("data-theme", eff);
+    if (pref === "system") root.removeAttribute("data-theme"); else root.setAttribute("data-theme", pref);
     root.setAttribute("data-theme-pref", pref);
     if (btn) {
       var label = btn.getAttribute("data-label-" + pref);
@@ -41,6 +42,12 @@
     var onChange = function () { if (pref === "system") render(); };
     if (mq.addEventListener) mq.addEventListener("change", onChange); else if (mq.addListener) mq.addListener(onChange);
   }
+  // 其他标签页改了主题：同步（removeItem 时 newValue 为 null → 跟随系统）
+  window.addEventListener("storage", function (e) {
+    if (e.key !== KEY && e.key !== null) return;
+    pref = getStored() || "system";
+    render();
+  });
   // giscus：按当前主题创建官方 client.js。执行前的切换直接改 data-theme；
   // iframe load 后与 iframe 发来消息时各主动同步一次（只认 giscus.app 且来源是该 iframe）。
   var mount = document.getElementById("giscus-mount");
