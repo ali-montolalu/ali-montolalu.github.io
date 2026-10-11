@@ -1689,7 +1689,7 @@ class Disclaimer(SiteBase):
 
 class R16AboutOneLiner(unittest.TestCase):
     """About page reduced to one positioning line (decision 2026-10-12 06:28 SGT)."""
-    ZH = "统一系统观在AI辅助加持下的认知实践与自我进化。"
+    ZH = "统一系统观在 AI 辅助加持下的认知实践与自我进化。"
     EN = "Cognitive practice and self-evolution of the Unified Systems View, augmented by AI assistance."
 
     def html(self, lang, text, sw):
@@ -1733,7 +1733,7 @@ class R16AboutOneLiner(unittest.TestCase):
     def test_en_about_with_chinese_fails_language(self):
         p = self.pages()
         p["https://s.test/en/about/"] = (200, self.html("en",
-            "统一系统观在AI辅助加持下的认知实践与自我进化。 Unified Systems View cognitive practice and self-evolution", "/about/"))
+            "统一系统观在 AI 辅助加持下的认知实践与自我进化。 Unified Systems View cognitive practice and self-evolution", "/about/"))
         r = self.run_page(p, "en", "/en/about/")
         self.assertFalse(r["checks"]["body_language"]["ok"], r["checks"]["body_language"])
         self.assertFalse(r["pass"])
