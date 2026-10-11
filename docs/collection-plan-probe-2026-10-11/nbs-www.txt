@@ -1,0 +1,43 @@
+# probe nbs-www · 2026-10-11 SGT
+# 响应头：当次实测未保存（curl 未加 -D），不补测
+# 以下为响应体前 2048 字节（已脱敏个人信息、邮箱与密钥；邮箱一律替换为 [email redacted]，作者名保留）
+# 说明：采集规划只要求去掉头像、主页链接、邮箱等，可保留公开账号名；本目录把用户名、账号名和用户 ID（含 HN 作者名与 author_ 标签、HF 用户 ID）一律打码，比要求更严，保持不改；GitHub 数字 id 与 node_id、SuttaCentral author_uid 及含译者账号的条目 id、INSPIRE 作者记录 id 也已打码；INSPIRE 作者标识（BAI、ORCID 等 ids 值）已打码；客户端 IP、WAF eventID、请求 ID、签名字段（signature_block）、页面 nonce 与验证 token/sitekey 已打码
+# 个人主页链接（GitHub/HF/HN 用户页、作者档案页、个人网站）一律替换为 [profile link redacted]
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>
+			数据发布 - 国家统计局
+		</title>
+		<meta name="ColumnName" content="数据发布">
+		<meta name="ColumnType" content="数据发布">
+		<meta name="ColumnDescription" content="数据发布">
+		<meta name="ColumnKeywords" content="数据发布">
+		<link href="../../images/gtj2023_base.css" rel="stylesheet" />
+		<link href="../../images/gtj2023_pc_common.css" rel="stylesheet" />
+		<link href="../../images/gtj2023_index.css" rel="stylesheet" />
+		<link href="../../images/gtj2023_pc_list.css" rel="stylesheet" />
+
+		<link rel="stylesheet" type="text/css" href="../../images/gtj2023_mobile_public.css" media="screen and (max-width:767px) and (orientation:portrait)" />
+		<link rel="stylesheet" type="text/css" href="../../images/gtj2023_mobile_index.css" media="screen and (max-width:767px) and (orientation:portrait)" />
+		<link rel="stylesheet" type="text/css" href="../../images/gtj2023_mobile_list.css" media="screen and (max-width:767px) and (orientation:portrait)" />
+		<link rel="stylesheet" media="screen and (min-width:1680px)" href="../../images/gtj2023_pc_common_1600.css" />
+		<link rel="stylesheet" media="screen and (min-width:1680px)" href="../../images/gtj2023_index-1600.css" />
+		<link rel="stylesheet" media="screen and (min-width:1680px)" href="../../images/gtj2023_pc-list-1600.css" />
+		<script type="text/javascript" src="../../images/gtj2023_jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../../images/gtj2023_h5.js"></script>
+		<script type="text/javascript" src="../../images/gtj2023_resize.js"></script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<style>
+        .icon-list ul {
+                width: 225px;
+                margin-left: 37px;
+        }
+</style>
+               <a href="https://www.stats.gov.cn/znwd/" target="_black " style="display:block;position:fixed;to

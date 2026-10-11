@@ -1,0 +1,26 @@
+# probe fed-rss · 2026-10-11 SGT
+# 响应头：当次实测未保存（curl 未加 -D），不补测
+# 以下为响应体前 2048 字节（已脱敏个人信息、邮箱与密钥；邮箱一律替换为 [email redacted]，作者名保留）
+# 说明：采集规划只要求去掉头像、主页链接、邮箱等，可保留公开账号名；本目录把用户名、账号名和用户 ID（含 HN 作者名与 author_ 标签、HF 用户 ID）一律打码，比要求更严，保持不改；GitHub 数字 id 与 node_id、SuttaCentral author_uid 及含译者账号的条目 id、INSPIRE 作者记录 id 也已打码；INSPIRE 作者标识（BAI、ORCID 等 ids 值）已打码；客户端 IP、WAF eventID、请求 ID、签名字段（signature_block）、页面 nonce 与验证 token/sitekey 已打码
+# 个人主页链接（GitHub/HF/HN 用户页、作者档案页、个人网站）一律替换为 [profile link redacted]
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0">
+    <channel>
+        <title>FRB: Press Release - All Releases</title>
+        <link><![CDATA[https://www.federalreserve.gov/feeds/feeds.htm]]></link>
+        <description><![CDATA[All recent press releases from the Federal Reserve Board]]></description>
+        <language>en</language>
+        <item>
+            <title>Federal Reserve Board releases results of the 2025 Survey of Consumer Finances, which provides the public and policymakers with detailed insights into the economic condition of American families</title>
+            <link><![CDATA[https://www.federalreserve.gov/newsevents/pressreleases/other20261009a.htm]]></link>
+            <guid><![CDATA[https://www.federalreserve.gov/newsevents/pressreleases/other20261009a.htm]]></guid>
+            <description><![CDATA[Federal Reserve Board releases results of the 2025 Survey of Consumer Finances, which provides the public and policymakers with detailed insights into the economic condition of American families]]></description>
+            <category>Other Announcements</category>
+            <pubDate><![CDATA[Fri, 9 Oct 2026 14:00:00 GMT]]></pubDate>    
+        </item>
+        <item>
+            <title>Federal Reserve Board announces enforcement action against American Express Company to address, among other things, the firm’s failure to sufficiently detect and report certain suspicious activity related to money laundering</title>
+            <link><![CDATA[https://www.federalreserve.gov/newsevents/pressreleases/enforcement20261008a.htm]]></link>
+            <guid><![CDATA[https://www.federalreserve.gov/newsevents/pressreleases/enforcement20261008a.htm]]></guid>
+            <description><![CDATA[Federal Reserve Board announces enforcement action against American Express Company to address, among other things, the firm’s failure to sufficiently detect and report certain suspicious activity related to money laundering]]></description>
+            <category>Enforcement Actions</

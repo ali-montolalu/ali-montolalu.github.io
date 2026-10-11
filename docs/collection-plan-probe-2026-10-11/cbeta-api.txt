@@ -1,0 +1,6 @@
+# probe cbeta-api · 2026-10-11 SGT
+# 响应头：当次实测未保存（curl 未加 -D），不补测
+# 以下为响应体前 2048 字节（已脱敏个人信息、邮箱与密钥；邮箱一律替换为 [email redacted]，作者名保留）
+# 说明：采集规划只要求去掉头像、主页链接、邮箱等，可保留公开账号名；本目录把用户名、账号名和用户 ID（含 HN 作者名与 author_ 标签、HF 用户 ID）一律打码，比要求更严，保持不改；GitHub 数字 id 与 node_id、SuttaCentral author_uid 及含译者账号的条目 id、INSPIRE 作者记录 id 也已打码；INSPIRE 作者标识（BAI、ORCID 等 ids 值）已打码；客户端 IP、WAF eventID、请求 ID、签名字段（signature_block）、页面 nonce 与验证 token/sitekey 已打码
+# 个人主页链接（GitHub/HF/HN 用户页、作者档案页、个人网站）一律替换为 [profile link redacted]
+{"num_found":1,"results":[{"work":"T0001","uuid":"f84c8d22-ce0c-470c-8e94-20059f4d89c2","canon":"T","category":"阿含部類","orig_category":"阿含部","vol":"T01","title":"長阿含經","juan":22,"juan_list":"1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22","cjk_chars":198436,"en_words":2,"file":"T01n0001","juan_start":1,"byline":"後秦 佛陀耶舍共竺佛念譯","creators":"佛陀耶舍,竺佛念","creators_with_id":"佛陀耶舍(A000439);竺佛念(A000435)","time_dynasty":"後秦","time_from":412,"time_to":413,"places":[{"name":"長安","id":"PL000000042393","latitude":34.3288,"longitude":108.9064}]}]}

@@ -1,0 +1,43 @@
+# probe sat · 2026-10-11 SGT
+# 响应头：当次实测未保存（curl 未加 -D），不补测
+# 以下为响应体前 2048 字节（已脱敏个人信息、邮箱与密钥；邮箱一律替换为 [email redacted]，作者名保留）
+# 说明：采集规划只要求去掉头像、主页链接、邮箱等，可保留公开账号名；本目录把用户名、账号名和用户 ID（含 HN 作者名与 author_ 标签、HF 用户 ID）一律打码，比要求更严，保持不改；GitHub 数字 id 与 node_id、SuttaCentral author_uid 及含译者账号的条目 id、INSPIRE 作者记录 id 也已打码；INSPIRE 作者标识（BAI、ORCID 等 ids 值）已打码；客户端 IP、WAF eventID、请求 ID、签名字段（signature_block）、页面 nonce 与验证 token/sitekey 已打码
+# 个人主页链接（GitHub/HF/HN 用户页、作者档案页、个人网站）一律替换为 [profile link redacted]
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>大正新脩大藏經テキストデータベース　ホーム</title>
+<link rel="stylesheet" href="./css/sample1.css" type="text/css" media="all"></head>
+<body>
+<div class="header">
+</div>
+<div class="navigation">
+<table><tbody><tr>
+<td>ホーム</td>
+<td><a href="satdb2015.php" target="_parent">検索</a></td>
+<td><a href="welcome.html">ご挨拶</a></td>
+<td><a href="members.html">組織</a></td>
+<td><a href="termsofuse.html">利用条件</a></td>
+<td><a href="howtouse.html">使い方</a></td>
+<td><a href="index_en.html">English</a></td>
+</tr></tbody></table>
+</div>
+<div class="content">
+<img class="right" src="./image/image01.jpg" alt="photo of books"/>
+<br/>
+<span class="article" style="border-radius:5px">SAT大正新脩大藏經テキストデータベース</span> <br/>
+<div style="padding-left:20px;padding-top:10px"><span style="font-weight:bold">SA</span>ṃgaṇikīkṛtaṃ <span style="font-weight:bold">T</span>aiśotripiṭakaṃ</div>
+<p class="text">智慧の宝庫、『大正新脩大藏經』の<br/>
+第1巻から第85巻までの全テキストをデータベース化</p>
+<p>
+<div style="margin:10px;padding:10px;border: solid green 2px;width:70%;border-radius:5px">
+<div style="font-weight:bold;color:blue">新着情報</div>
+<div style="height:100px;overflow-y:auto">
+  <ul>
+    <li>
+2025年4月より、SATデータベースを基盤として、科学研究費助成事業（科研費）【特別推進研究】「デジタル研究基盤としての令和大蔵経の編纂―次世代人文学の研究基盤構築モデルの提示」が開始されます。詳しくは<a href="https://reiwadzk.dhii.asia/">こちらのサイト</a>をご覧ください。
+
+    </li>
+    <li><span style="color:red">2024/9/8 13時～17時、東京大学法文2号館の停電に伴い、SATサーバは休止します。</span>ご不便をおかけして申し訳ありません。
+    <li>2024/7/7、<a href="/SATm/">現代日本語訳仏典のモバ

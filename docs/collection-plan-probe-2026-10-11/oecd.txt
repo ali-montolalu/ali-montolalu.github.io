@@ -1,0 +1,30 @@
+# probe oecd · 2026-10-11 SGT
+# 响应头：当次实测未保存（curl 未加 -D），不补测
+# 以下为响应体前 2048 字节（已脱敏个人信息、邮箱与密钥；邮箱一律替换为 [email redacted]，作者名保留）
+# 说明：采集规划只要求去掉头像、主页链接、邮箱等，可保留公开账号名；本目录把用户名、账号名和用户 ID（含 HN 作者名与 author_ 标签、HF 用户 ID）一律打码，比要求更严，保持不改；GitHub 数字 id 与 node_id、SuttaCentral author_uid 及含译者账号的条目 id、INSPIRE 作者记录 id 也已打码；INSPIRE 作者标识（BAI、ORCID 等 ids 值）已打码；客户端 IP、WAF eventID、请求 ID、签名字段（signature_block）、页面 nonce 与验证 token/sitekey 已打码
+# 个人主页链接（GitHub/HF/HN 用户页、作者档案页、个人网站）一律替换为 [profile link redacted]
+<?xml version="1.0" encoding="utf-8"?>
+<!--NSI Web Service v10.11.8.0-->
+<message:Structure xmlns:message="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/message" xmlns:structure="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/structure" xmlns:common="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/common">
+  <message:Header>
+    <message:ID>IDREF1157</message:ID>
+    <message:Test>false</message:Test>
+    <message:Prepared>2026-10-10T06:27:06.3536199+02:00</message:Prepared>
+    <message:Sender id="Unknown" />
+    <message:Receiver id="Unknown" />
+  </message:Header>
+  <message:Structures>
+    <structure:Dataflows>
+      <structure:Dataflow id="SEEA_AEA_A" agencyID="ESTAT" version="1.4" isExternalReference="true" isFinal="true" structureURL="https://sdmx.oecd.org/public/rest/dataflow/ESTAT/SEEA_AEA_A/1.4">
+        <common:Name xml:lang="en">Air Emissions Accounts</common:Name>
+      </structure:Dataflow>
+      <structure:Dataflow id="DF_SDG_GLC" agencyID="IAEG-SDGs" version="1.20" isExternalReference="true" isFinal="true" structureURL="https://sdmx.oecd.org/public/rest/dataflow/IAEG-SDGs/DF_SDG_GLC/1.20">
+        <common:Name xml:lang="en">SDG Country Global Dataflow</common:Name>
+      </structure:Dataflow>
+      <structure:Dataflow id="DF_SDG_GLH" agencyID="IAEG-SDGs" version="1.20" isExternalReference="true" isFinal="true" structureURL="https://sdmx.oecd.org/public/rest/dataflow/IAEG-SDGs/DF_SDG_GLH/1.20">
+        <common:Name xml:lang="en">SDG Harmonized Global Dataflow</common:Name>
+      </structure:Dataflow>
+      <structure:Dataflow id="DSD_FUA_CLIM@DF_CLIM_PROJ" agencyID="OECD.CFE.EDS" version="1.6" isExternalReference="true" isFinal="false" structureURL="https://sdmx.oecd.org/public/rest/dataflow/OECD.CFE.EDS/DSD_FUA_CLIM@DF_CLIM_PROJ/1.6">
+        <common:Name xml:lang="en">Climate projections by scenario, 2030–2060 – Cities and FUAs</common:Name>
+        <common:Name xml:lang="fr">Projections climatiques pour la période 2030-2060 - Villes et FUAs</common:Name>
+   

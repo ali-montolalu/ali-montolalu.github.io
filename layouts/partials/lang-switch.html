@@ -1,0 +1,12 @@
+{{- /* 语言切换：每种其他语言各一个链接。目标 = 本页在该语言的译本；没有译本时 = 该语言首页。只用 .Translations（Hugo 按内容文件配对），不按 URL 拼接。 */ -}}
+{{- $page := . -}}
+<span class="lang">
+{{- range site.Home.AllTranslations -}}
+{{- $lang := .Language.Lang -}}
+{{- if eq $lang $page.Language.Lang -}}<strong>{{ .Language.LanguageName }}</strong>
+{{- else -}}
+{{- $target := .RelPermalink -}}
+{{- with $page.Translations -}}{{- range . -}}{{- if eq .Language.Lang $lang -}}{{- $target = .RelPermalink -}}{{- end -}}{{- end -}}{{- end -}}
+<a href="{{ $target }}" hreflang="{{ .Language.LanguageCode }}">{{ .Language.LanguageName }}</a>
+{{- end }} {{ end -}}
+</span>

@@ -1,0 +1,48 @@
+# probe szse · 2026-10-11 SGT
+# 响应头：当次实测未保存（curl 未加 -D），不补测
+# 以下为响应体前 2048 字节（已脱敏个人信息、邮箱与密钥；邮箱一律替换为 [email redacted]，作者名保留）
+# 说明：采集规划只要求去掉头像、主页链接、邮箱等，可保留公开账号名；本目录把用户名、账号名和用户 ID（含 HN 作者名与 author_ 标签、HF 用户 ID）一律打码，比要求更严，保持不改；GitHub 数字 id 与 node_id、SuttaCentral author_uid 及含译者账号的条目 id、INSPIRE 作者记录 id 也已打码；INSPIRE 作者标识（BAI、ORCID 等 ids 值）已打码；客户端 IP、WAF eventID、请求 ID、签名字段（signature_block）、页面 nonce 与验证 token/sitekey 已打码
+# 个人主页链接（GitHub/HF/HN 用户页、作者档案页、个人网站）一律替换为 [profile link redacted]
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="utf-8">
+<!--   <title>深交所主页</title>   -->
+<script>
+    var title = '<a href="./" class="CurrChnlCls">上市公司公告</a> ';
+    title = title.substring(title.indexOf('>')+1,title.indexOf('</'));
+    document.write('<title>深圳证券交易所-'+ title +'</title>')
+</script>
+<script>
+  if(location.protocol == 'https:'){
+    document.write('<link href="https://res.szse.cn/common/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />');
+  }else{
+    document.write('<link href="http://res.static.szse.cn/common/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />');
+  }
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0" />
+<meta http-equiv="cache-control" content="max-age=0">
+<meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="expires" content="Web, 26 Feb 1997 08:21:57 GMT">
+<meta http-equiv="pragma" content="no-cache">
+<meta name="author" content="www.szse.cn">
+<meta name="description" content="深交所官网">
+<meta name="keywords" content="深交所,深交所官网,深圳证券交易所,交易所,交易所官网,深圳证券交易所官网">
+<meta name="renderer" content=webkit>
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google" value="notranslate"> 
+<meta name="format-detection" content="telephone=no">
+<meta name="format-detection" content="email=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="screen-orientation" content="portrait">
+<meta name="full-screen" content="yes">
+<meta name="browermode" content="application">
+<meta name="x5-orientation" content="portrait">
+<meta name="HandheldFriendly" content="true">
+<script type="text/javascript">
+	var u = navigator.userAgent;
+	var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;//android终端
+
+	fun

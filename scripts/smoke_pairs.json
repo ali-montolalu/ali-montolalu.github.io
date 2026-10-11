@@ -1,0 +1,59 @@
+{
+  "_comment": "Key information that must match between each zh/en page pair. required_phrases: per page name (home, about, latest daily ...); each item is {zh, en} or {pairs: [[zh, en], ...]} (accepted variants registered as pairs; a page passes an item only if some zh_i is on the zh page AND the same en_i is on the en page; en case-insensitive; whitespace-insensitive). Phrases need >= 4 CJK characters or >= 8 letters; home and about must have entries. event_times: per page, each event maps to a label pattern per language with {T} marking the HH:MM time; the time next to each label must be equal on both pages. profile_hosts: external profile hosts whose links must be identical. Maintained by markjin 生产与发布 (decided by Grok Bot); a PR that changes a registered phrase (on either the zh or en page) must update this file in the same PR; copy changes that touch no registered phrase do not require updating it.",
+  "profile_hosts": [
+    "x.com",
+    "twitter.com",
+    "github.com",
+    "linkedin.com",
+    "weibo.com",
+    "zhihu.com",
+    "youtube.com"
+  ],
+  "required_phrases": {
+    "home": [
+      {
+        "zh": "统一系统观",
+        "en": "Unified Systems View"
+      },
+      {
+        "zh": "认知实践与自我进化",
+        "en": "cognitive practice and self-evolution"
+      }
+    ],
+    "about": [
+      {
+        "zh": "统一系统观",
+        "en": "Unified Systems View"
+      },
+      {
+        "zh": "认知实践与自我进化",
+        "en": "cognitive practice and self-evolution"
+      }
+    ]
+  },
+  "event_times": {
+    "about": [
+      {
+        "event": "review starts",
+        "zh": "{T}\\s*开审",
+        "en": [
+          "review starts at {T}",
+          "review (?:begins|starts) at {T}"
+        ]
+      },
+      {
+        "event": "publish",
+        "zh": "{T}\\s*(?:前)?发布",
+        "en": [
+          "published (?:at|by|before) {T}",
+          "publish(?:es)? (?:at|by|before) {T}"
+        ]
+      },
+      {
+        "event": "Monday proposal review",
+        "zh": "每周一\\s*{T}",
+        "en": "every Monday at {T}"
+      }
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+source	http_code	size_bytes	time_s	tested_at_SGT	result	raw_response
+arxiv-api	200	3583	0.197496	2026-10-11 09:53:16	通过：返回预期数据	collection-plan-probe-2026-10-11/arxiv-api.txt
+arxiv-rss	200	1032716	0.241343	2026-10-11 09:53:17	通过：返回预期数据	collection-plan-probe-2026-10-11/arxiv-rss.txt
+openreview	403	323	0.218636	2026-10-11 09:53:18	被拦：返回人机/JS 验证页，停源待人工复核	collection-plan-probe-2026-10-11/openreview.txt
+semanticscholar	429	174	0.207345	2026-10-11 09:53:20	部分可用：429 限流	collection-plan-probe-2026-10-11/semanticscholar.txt
+hf-papers	200	5162	0.143708	2026-10-11 09:53:21	通过：返回预期数据	collection-plan-probe-2026-10-11/hf-papers.txt
+gh-releases	200	11258	0.282703	2026-10-11 09:53:22	通过：返回预期数据	collection-plan-probe-2026-10-11/gh-releases.txt
+openai-rss	200	784414	0.165195	2026-10-11 09:53:23	通过：返回预期数据	collection-plan-probe-2026-10-11/openai-rss.txt
+deepmind-rss	200	18785	0.188422	2026-10-11 09:53:24	结论待复核：样本为未解压的 gzip 字节，看不到 RSS 内容	collection-plan-probe-2026-10-11/deepmind-rss.txt
+nbs-www	200	73142	2.372176	2026-10-11 09:53:28	通过：返回预期数据	collection-plan-probe-2026-10-11/nbs-www.txt
+nbs-rss	200	4501586	2.850536	2026-10-11 09:53:32	通过：返回预期数据	collection-plan-probe-2026-10-11/nbs-rss.txt
+nbs-data	200	3198	1.615680	2026-10-11 09:53:34	结论待复核：data.stats.gov.cn 首页（不是查询接口），样本只是 JS 外壳页	collection-plan-probe-2026-10-11/nbs-data.txt
+nbs-easyquery	403	303	1.087769	2026-10-11 09:53:36	被拦：403，停源待人工复核	collection-plan-probe-2026-10-11/nbs-easyquery.txt
+pbc	000	0	15.001848	2026-10-11 09:54:05	失败：超时	未存响应体
+customs	000	0	15.002692	2026-10-11 09:54:21	失败：超时	未存响应体
+safe	200	23598	1.360876	2026-10-11 09:54:23	通过：返回预期数据	collection-plan-probe-2026-10-11/safe.txt
+mof	200	18600	1.100384	2026-10-11 09:54:26	通过：返回预期数据	collection-plan-probe-2026-10-11/mof.txt
+fred-graph-csv(无key的fredgraph.csv下载，非API)	200	14211	0.184122	2026-10-11 09:54:27	通过：返回预期数据	collection-plan-probe-2026-10-11/fred-csv.txt
+bls-api	200	3152	0.444650	2026-10-11 09:54:28	通过：返回预期数据	collection-plan-probe-2026-10-11/bls-api.txt
+bea	200	313	8.786300	2026-10-11 09:54:38	部分可用：错误体（UserID 无效）	collection-plan-probe-2026-10-11/bea.txt
+fed-rss	200	14897	0.138080	2026-10-11 09:54:39	通过：返回预期数据	collection-plan-probe-2026-10-11/fed-rss.txt
+fed-h15	200	105944	0.189517	2026-10-11 09:54:40	通过：返回预期数据	collection-plan-probe-2026-10-11/fed-h15.txt
+imf-sdmx	000	0	0.043361	2026-10-11 09:54:41	失败：连接失败	未存响应体
+imf-datamapper	200	121723	0.446096	2026-10-11 09:54:43	通过：返回预期数据	collection-plan-probe-2026-10-11/imf-datamapper.txt
+worldbank	200	296	0.167002	2026-10-11 09:54:44	通过：返回预期数据	collection-plan-probe-2026-10-11/worldbank.txt
+bis	200	15287	0.821576	2026-10-11 09:54:46	通过：返回预期数据	collection-plan-probe-2026-10-11/bis.txt
+oecd	200	738294	0.149026	2026-10-11 09:54:47	通过：返回预期数据	collection-plan-probe-2026-10-11/oecd.txt
+ecb	000	0	10.012851	2026-10-11 09:54:58	失败：超时	未存响应体
+arxiv-hepth	200	2149	0.306138	2026-10-11 09:54:59	通过：返回预期数据	collection-plan-probe-2026-10-11/arxiv-hepth.txt
+arxiv-grqc	200	892	0.235463	2026-10-11 09:55:01	通过：返回预期数据	collection-plan-probe-2026-10-11/arxiv-grqc.txt
+arxiv-quantph	200	904	0.113621	2026-10-11 09:55:02	通过：返回预期数据	collection-plan-probe-2026-10-11/arxiv-quantph.txt
+inspire	200	13571	0.695302	2026-10-11 09:55:03	通过：返回预期数据	collection-plan-probe-2026-10-11/inspire.txt
+pubmed	200	1069	0.449129	2026-10-11 09:55:05	通过：返回预期数据	collection-plan-probe-2026-10-11/pubmed.txt
+ctext-api	200	281	0.264874	2026-10-11 09:55:06	部分可用：错误体（需认证）	collection-plan-probe-2026-10-11/ctext-api.txt
+ctext-web	200	2781	0.243231	2026-10-11 09:55:07	被拦：返回人机/JS 验证页，停源待人工复核	collection-plan-probe-2026-10-11/ctext-web.txt
+wikisource	200	107	0.230733	2026-10-11 09:55:09	通过：返回预期数据	collection-plan-probe-2026-10-11/wikisource.txt
+cbeta-api	200	626	1.125771	2026-10-11 09:55:11	通过：返回预期数据	collection-plan-probe-2026-10-11/cbeta-api.txt
+cbeta-github	200	5972	0.210409	2026-10-11 09:55:12	通过：返回预期数据	collection-plan-probe-2026-10-11/cbeta-github.txt
+suttacentral	200	11157	0.138877	2026-10-11 09:55:13	通过：返回预期数据	collection-plan-probe-2026-10-11/suttacentral.txt
+sat	200	27519	1.051328	2026-10-11 09:55:15	通过：返回预期数据	collection-plan-probe-2026-10-11/sat.txt
+sse	200	28149	1.591637	2026-10-11 09:55:18	通过：返回预期数据	collection-plan-probe-2026-10-11/sse.txt
+szse	200	31666	1.792921	2026-10-11 09:55:21	通过：返回预期数据	collection-plan-probe-2026-10-11/szse.txt
+cninfo	000	0	15.003096	2026-10-11 09:55:37	失败：http 入口超时	未存响应体
+sec-edgar	403	4818	0.130460	2026-10-11 09:55:38	被拦：403，停源待人工复核	collection-plan-probe-2026-10-11/sec-edgar.txt
+stooq	200	796	0.707882	2026-10-11 09:55:40	被拦：返回人机/JS 验证页，停源待人工复核	collection-plan-probe-2026-10-11/stooq.txt
+eastmoney	200	83	0.574424	2026-10-11 09:55:41	部分可用：空数据	collection-plan-probe-2026-10-11/eastmoney.txt
+yahoo	200	35534	0.104276	2026-10-11 09:55:42	通过：返回预期数据	collection-plan-probe-2026-10-11/yahoo.txt
+gh-discussions	404	9	0.211419	2026-10-11 09:55:43	部分可用：网页 404	collection-plan-probe-2026-10-11/gh-discussions.txt
+hn-api	200	4501	0.169790	2026-10-11 09:55:45	通过：返回预期数据	collection-plan-probe-2026-10-11/hn-api.txt
+hn-algolia	200	5128	0.279249	2026-10-11 09:55:46	通过：返回预期数据	collection-plan-probe-2026-10-11/hn-algolia.txt
+europepmc	200	1195	0.811693	2026-10-11 09:55:48	通过：返回预期数据	collection-plan-probe-2026-10-11/europepmc.txt
+pbc-home-retest	000	0	20	2026-10-11 09:56	失败：超时（无响应体）	未存响应体
+customs-home-retest	000	0	20	2026-10-11 09:56	失败：超时（无响应体）	未存响应体
+cninfo-https-retest	200	109854	-	2026-10-11 09:56	未存响应体，结论待复核	未存响应体
+ecb-home-retest	000	0	20	2026-10-11 09:56	失败：超时（无响应体）	未存响应体
+imf-new-sdmx	200	-	-	2026-10-11 09:57	未存响应体，结论待复核	未存响应体
+gh-discussions-graphql	200	-	-	2026-10-11 09:57	未存响应体，结论待复核	未存响应体
+nbs-easyquery-capture	403	-	-	2026-10-11 08:26:34	被拦：403，停源待人工复核	旧仓库（已归档） raw/2026-10-11/nbs-gdp/nbs-easyquery-A0101-403.html（WAF UrlACL）

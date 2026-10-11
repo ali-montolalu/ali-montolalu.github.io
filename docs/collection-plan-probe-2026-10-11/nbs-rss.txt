@@ -1,0 +1,27 @@
+# probe nbs-rss · 2026-10-11 SGT
+# 响应头：当次实测未保存（curl 未加 -D），不补测
+# 以下为响应体前 2048 字节（已脱敏个人信息、邮箱与密钥；邮箱一律替换为 [email redacted]，作者名保留）
+# 说明：采集规划只要求去掉头像、主页链接、邮箱等，可保留公开账号名；本目录把用户名、账号名和用户 ID（含 HN 作者名与 author_ 标签、HF 用户 ID）一律打码，比要求更严，保持不改；GitHub 数字 id 与 node_id、SuttaCentral author_uid 及含译者账号的条目 id、INSPIRE 作者记录 id 也已打码；INSPIRE 作者标识（BAI、ORCID 等 ids 值）已打码；客户端 IP、WAF eventID、请求 ID、签名字段（signature_block）、页面 nonce 与验证 token/sitekey 已打码
+# 个人主页链接（GitHub/HF/HN 用户页、作者档案页、个人网站）一律替换为 [profile link redacted]
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+	<title>数据发布</title>
+			<meta name="ColumnName" content="数据发布"/>
+		<meta name="ColumnType" content="数据发布"/>
+		<meta name="ColumnDescription" content="数据发布"/>
+		<meta name="ColumnKeywords" content="数据发布"/>
+<link>https://www.stats.gov.cn/sj/zxfb/</link>
+	<language>zh-CN</language>
+	<description><![CDATA[数据发布]]></description>
+	<webchannelid>18518</webchannelid>
+	
+	<item>
+		<title><![CDATA[2026年9月下旬流通领域重要生产资料市场价格变动情况]]></title>
+		<channel>数据发布</channel>
+		<link>https://www.stats.gov.cn/sj/zxfb/202610/t20261008_1965465.html</link>
+		<source></source>
+                  <pubTime>2026-10-09 09:30:00</pubTime>
+		<pubDate>2026-10-09 09:30:00</pubDate>
+                    <description> <![CDATA[中国统计信息服务中心　卓创资讯 　　据对全国流通领域9大类50种重要生产资料市场价格的监测显示，2026年9月下旬与9月中旬相比，22种产品价格上涨，23种下降，5种持平。 2026年9月下旬流通领域重要生产资料市场价格变动情况 产品名称单位本期价格（元）比上期价格涨跌（元）涨跌幅（%）一、黑色金属    螺纹钢（...]]> </description>
+		<content> <![CDATA[中国统计信息服务中心　卓创资讯 　　据对全国流通领域9大类50种重要生产资料市场价格的监测显示，2026年9月下旬与9月中旬相比，22种产品价格上涨，23种下降，5种持平。 2026年9月下旬流通领域重要生产资料市场价格变动情况 产品名称单位本期价格（元）比上期价格涨跌（元）涨跌幅（%）一、黑色金属    螺纹钢（Φ20mm，HRB400E）吨3175.910.80.3线材（Φ8—10mm，HPB300）吨3371.017.30.5普通中板（20mm，Q235）吨3537.4-10.6-0.3热轧普通板卷（4.75—11.5mm，Q235）吨3297.1-11.8-0.4无缝钢管（219*6，20#）吨4020.6-1.80.0角钢（5#）吨3412.3-20.8-0.6二、�

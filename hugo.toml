@@ -1,0 +1,45 @@
+baseURL = "https://markjin-lab.github.io/"
+defaultContentLanguage = "zh"
+defaultContentLanguageInSubdir = false
+hasCJKLanguage = true
+title = "markjin"
+[outputs]
+home = ["HTML","RSS"]
+section = ["HTML","RSS"]
+
+# 文件命名：<name>.md = 中文（默认，URL 不变，位于 /）；<name>.en.md = 英文（位于 /en/）。见 docs/i18n.md。
+[languages.zh]
+weight = 1
+languageCode = "zh-cn"
+languageName = "中文"
+title = "markjin"
+[[languages.zh.menus.main]]
+name = "每日信号"
+url = "/posts/daily/"
+weight = 1
+[[languages.zh.menus.main]]
+name = "专题"
+url = "/topics/"
+weight = 2
+[[languages.zh.menus.main]]
+name = "关于"
+url = "/about/"
+weight = 3
+
+[languages.en]
+weight = 2
+languageCode = "en"
+languageName = "English"
+title = "markjin"
+[[languages.en.menus.main]]
+name = "Daily signals"
+url = "/en/posts/daily/"
+weight = 1
+[[languages.en.menus.main]]
+name = "Topics"
+url = "/en/topics/"
+weight = 2
+[[languages.en.menus.main]]
+name = "About"
+url = "/en/about/"
+weight = 3

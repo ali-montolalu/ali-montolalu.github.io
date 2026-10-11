@@ -1,0 +1,45 @@
+# probe sse · 2026-10-11 SGT
+# 响应头：当次实测未保存（curl 未加 -D），不补测
+# 以下为响应体前 2048 字节（已脱敏个人信息、邮箱与密钥；邮箱一律替换为 [email redacted]，作者名保留）
+# 说明：采集规划只要求去掉头像、主页链接、邮箱等，可保留公开账号名；本目录把用户名、账号名和用户 ID（含 HN 作者名与 author_ 标签、HF 用户 ID）一律打码，比要求更严，保持不改；GitHub 数字 id 与 node_id、SuttaCentral author_uid 及含译者账号的条目 id、INSPIRE 作者记录 id 也已打码；INSPIRE 作者标识（BAI、ORCID 等 ids 值）已打码；客户端 IP、WAF eventID、请求 ID、签名字段（signature_block）、页面 nonce 与验证 token/sitekey 已打码
+# 个人主页链接（GitHub/HF/HN 用户页、作者档案页、个人网站）一律替换为 [profile link redacted]
+<!doctype html>
+<html>
+ <head><!--获取栏目id页--> <!-- 站点属性 --><meta charset="utf-8">
+<meta name="description" content="">
+<meta name="author" content="上海证券交易所">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<meta name="apple-mobile-web-app-title" content="上海证券交易所">
+<link rel="shortcut icon" href="/xhtml/images/favicon.ico">
+
+ 
+  <meta name="SiteName" content="中文版上交所官网">
+  <meta name="SiteDomain" content="http://www.sse.com.cn">
+  <meta name="SiteIDCode" content="9106">
+  <meta name="ColumnName" content="最新公告">
+  <meta name="ColumnDescription" content="最新公告">
+  <meta name="ColumnKeywords" content="最新公告">
+  <meta name="ColumnType" content="最新公告">
+  <meta name="others" content="页面生成时间 2023-11-03 14:39:03">
+  <title>最新公告  | 上海证券交易所</title>
+  <script>
+
+    var channelCode = "announcement_8349";
+   var websiteid = "28";
+
+    var col_id = "8349";
+    var pageTitle ="最新公告";
+
+
+
+</script><!-- CSS --> <link href="/xhtml/css/lib/2021/bootstrap-v4.5.0.css" rel="stylesheet" type="text/css" charset="utf-8">
+<link href="/xhtml/css/sse_inside_2021.css?v=ssesite_20260814" rel="stylesheet" type="text/css" charset="utf-8"> <!-- Favicons --> <!-- <link rel="shortcut icon" href="/xhtml/images/favicon.ico" >-->
+<!-- IOS / Android 主屏图标 -->
+<link href="/xhtml/images/webappicon/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="/xhtml/images/webappicon/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76"/>
+<link href="/xhtml/images/webappicon/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120"/>
+<link href="/xhtml/images/webappicon/apple-touch-icon-152x152.png" rel="apple-touch

@@ -1,0 +1,60 @@
+# probe mof · 2026-10-11 SGT
+# 响应头：当次实测未保存（curl 未加 -D），不补测
+# 以下为响应体前 2048 字节（已脱敏个人信息、邮箱与密钥；邮箱一律替换为 [email redacted]，作者名保留）
+# 说明：采集规划只要求去掉头像、主页链接、邮箱等，可保留公开账号名；本目录把用户名、账号名和用户 ID（含 HN 作者名与 author_ 标签、HF 用户 ID）一律打码，比要求更严，保持不改；GitHub 数字 id 与 node_id、SuttaCentral author_uid 及含译者账号的条目 id、INSPIRE 作者记录 id 也已打码；INSPIRE 作者标识（BAI、ORCID 等 ids 值）已打码；客户端 IP、WAF eventID、请求 ID、签名字段（signature_block）、页面 nonce 与验证 token/sitekey 已打码
+# 个人主页链接（GitHub/HF/HN 用户页、作者档案页、个人网站）一律替换为 [profile link redacted]
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="SiteName" content="中华人民共和国财政部">
+<meta name="SiteDomain" content="http://www.mof.gov.cn">
+<meta name="SiteIDCode" content="bm14000001">
+<meta name="ColumnName" content="财政数据">
+<meta name="ColumnDescription" content="财政数据">
+<meta name="ColumnKeywords" content="财政数据">
+<meta name="ColumnType" content="财政数据">
+<meta name="viewport" content="width=1000"/>
+<title>财政数据</title>
+<link href="../../images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link href="../../images/common_13_1.css" rel="stylesheet" type="text/css">
+<link href="../../images/czbstyle_6.css" rel="stylesheet" type="text/css">
+<style>
+body{  background:#fff url(../../images/czb_bgbig2.jpg) center top no-repeat; }
+</style>
+</head>
+<body>
+<!-- 头部-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+
+<meta name="viewport" content="width=1000"/>
+
+<link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<!--<script src="/images/jquery_1.min.js"></script>-->
+
+<script src="/images/jquery-3.6.0.min.js"></script>
+<script src="/images/jquery-migrate-3.4.0.min.js"></script>
+<script src="/images/jquery.SuperSlide.js"></script>
+<link href="/images/common_7.css" rel="stylesheet" type="text/css">
+<link href="/images/czbstyle_1.css" rel="stylesheet" type="text/css">
+<!--网站变灰Begin -->
+
+
+</head>
+<body>
+<div class="logodiv" style="height:140px;">
+<script>
+      String.prototype.trim = function () {
+            return this.replace(/^\s*/, "").replace(/\s*$/, "");
+        };
+        function checkInput() {
+            var andsen = document.getElementById("andsen").value.trim();
+			//var scope= $(".select_box span").html();
+			//setSearchScope(scope);
+            if (andsen != '') {
+                var form = documen

@@ -1,0 +1,15 @@
+{{ define "main" }}<article><h1>{{ .Title }}</h1>{{ if not .Date.IsZero }}<p class="meta">{{ .Date.Format "2006-01-02" }}</p>{{ end }}{{ .Content }}</article>
+{{ if eq .Section "posts" }}<section class="comments" style="margin-top:2.5rem">
+<div id="giscus-mount" hidden
+  data-repo="markjin-lab/markjin-lab.github.io"
+  data-repo-id="R_kgDOVDeszw"
+  data-category="Comments"
+  data-category-id="DIC_kwDOVDesz84DHemU"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-lang="{{ i18n "giscus_lang" }}"
+></div>{{/* theme.js 按当前主题生成 giscus 的 client.js（data-theme=light/dark），切换时 postMessage setConfig */}}
+</section>{{ end }}{{ end }}

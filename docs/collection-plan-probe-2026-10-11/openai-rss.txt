@@ -1,0 +1,36 @@
+# probe openai-rss · 2026-10-11 SGT
+# 响应头：当次实测未保存（curl 未加 -D），不补测
+# 以下为响应体前 2048 字节（已脱敏个人信息、邮箱与密钥；邮箱一律替换为 [email redacted]，作者名保留）
+# 说明：采集规划只要求去掉头像、主页链接、邮箱等，可保留公开账号名；本目录把用户名、账号名和用户 ID（含 HN 作者名与 author_ 标签、HF 用户 ID）一律打码，比要求更严，保持不改；GitHub 数字 id 与 node_id、SuttaCentral author_uid 及含译者账号的条目 id、INSPIRE 作者记录 id 也已打码；INSPIRE 作者标识（BAI、ORCID 等 ids 值）已打码；客户端 IP、WAF eventID、请求 ID、签名字段（signature_block）、页面 nonce 与验证 token/sitekey 已打码
+# 个人主页链接（GitHub/HF/HN 用户页、作者档案页、个人网站）一律替换为 [profile link redacted]
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[OpenAI News]]></title>
+        <description><![CDATA[The OpenAI blog]]></description>
+        <link>https://openai.com/news</link>
+        <image>
+            <url>https://openai.com/apple-icon.png</url>
+            <title>OpenAI News</title>
+            <link>https://openai.com/news</link>
+        </image>
+        <generator>OpenAI</generator>
+        <lastBuildDate>Sun, 11 Oct 2026 01:05:53 GMT</lastBuildDate>
+        <atom:link href="https://openai.com/news/rss.xml" rel="self" type="application/rss+xml"/>
+        <language><![CDATA[en-US]]></language>
+        <item>
+            <title><![CDATA[Sophos cuts threat investigation time by 96% with OpenAI Daybreak]]></title>
+            <description><![CDATA[Discover how Sophos uses OpenAI’s Daybreak to cut cyber-threat investigation time by 96% and automate 52% of MDR cases while preserving human oversight.]]></description>
+            <link>https://openai.com/index/sophos</link>
+            <guid isPermaLink="true">https://openai.com/index/sophos</guid>
+            <pubDate>Fri, 09 Oct 2026 07:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Asana cuts model costs 76x in browser tests with GPT-6.1 Sol]]></title>
+            <description><![CDATA[Using GPT-6 Astra in Codex, Asana made its browser agent 76x cheaper and 5x faster in tests to offer customers more capable models.]]></description>
+            <link>https://openai.com/index/asana-browser-agent</link>
+            <guid isPermaLink="true">https://openai.com/index/asana-browser-agent</guid>
+            <pubDate>Fri, 09 Oct 2026 07:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[How Oracle turns days of work into minutes with ChatGPT and Codex]]></title>
+            <description><![CDATA[Across recruiting, engine

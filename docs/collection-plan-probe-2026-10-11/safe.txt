@@ -1,0 +1,35 @@
+# probe safe · 2026-10-11 SGT
+# 响应头：当次实测未保存（curl 未加 -D），不补测
+# 以下为响应体前 2048 字节（已脱敏个人信息、邮箱与密钥；邮箱一律替换为 [email redacted]，作者名保留）
+# 说明：采集规划只要求去掉头像、主页链接、邮箱等，可保留公开账号名；本目录把用户名、账号名和用户 ID（含 HN 作者名与 author_ 标签、HF 用户 ID）一律打码，比要求更严，保持不改；GitHub 数字 id 与 node_id、SuttaCentral author_uid 及含译者账号的条目 id、INSPIRE 作者记录 id 也已打码；INSPIRE 作者标识（BAI、ORCID 等 ids 值）已打码；客户端 IP、WAF eventID、请求 ID、签名字段（signature_block）、页面 nonce 与验证 token/sitekey 已打码
+# 个人主页链接（GitHub/HF/HN 用户页、作者档案页、个人网站）一律替换为 [profile link redacted]
+<!DOCTYPE html ><html xmlns="http://www.w3.org/1999/xhtml"><head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE11" />
+  <meta name="renderer" content="webkit"> 
+  <meta name="SiteName" content="国家外汇管理局门户网站" >
+  <meta name="SiteDomain" content="www.safe.gov.cn" >
+  <meta name="SiteIDCode" content="bm74000001" >
+  <meta name="ColumnName" content="统计数据">
+  <meta name="ColumnDescription" content="外汇储备">
+  <meta name="ColumnKeywords" content="外汇储备">
+  <meta name="ColumnType" content="外汇储备">
+  <title>外汇储备_国家外汇管理局门户网站</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/safe/templateresource/372b1dfdab204181b9b4f943a8e926a6/images/safe.ico" media="screen" />  
+  <link rel="stylesheet" type="text/css" href="/safe/templateresource/372b1dfdab204181b9b4f943a8e926a6/css/basic.css"> 
+  <link rel="stylesheet" type="text/css" href="/safe/templateresource/372b1dfdab204181b9b4f943a8e926a6/css/style.css">
+
+<!--[if lt IE 9]>
+<script type="text/javascript" src="/safe/templateresource/372b1dfdab204181b9b4f943a8e926a6/js/polyfill.js"></script>
+<script type="text/javascript" src="/safe/templateresource/372b1dfdab204181b9b4f943a8e926a6/js/polyfills.js"></script>
+<![endif]-->
+<!--[if gte IE 9]><!-->
+<script type="text/javascript" src="/safe/templateresource/372b1dfdab204181b9b4f943a8e926a6/js/jquery1.42.min.js"></script>
+<!--<![endif]-->
+<!--[if lt IE 9]>
+<script type="text/javascript" src="/safe/templateresource/372b1dfdab204181b9b4f943a8e926a6/js/jquery-3.5.0.4ie8.min.js"></script>
+<![endif]-->
+
+  <!-- <script src="Scripts/swfobject_modified.js" type="text/javascript" th:src="@{/templateresource/372b1dfdab204181b9b4f943a8e926a6/Scripts/swfobject_modified.js}"></script> -->
+  <script src="/safe/templateresource/372b1dfdab204181b9b4f943a8e926a6/DatePicker/WdatePicker.js" type="text/javascript"></script>
+  <link href="/safe/templateresource/372b1dfdab204181b9b4f9

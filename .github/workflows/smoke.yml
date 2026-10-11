@@ -1,0 +1,27 @@
+name: Post-deploy smoke check
+on:
+  workflow_run:
+    workflows: ["Deploy Hugo site to Pages"]
+    types: [completed]
+  schedule:
+    - cron: '15 23 * * *'   # daily 07:15 SGT patrol, independent of deploys (catches a missed daily)
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  smoke:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - name: Unit tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Wait for CDN to pick up the new deploy
+        if: ${{ github.event_name == 'workflow_run' }}
+        run: sleep 30
+      - name: Smoke check live site
+        run: python3 scripts/smoke_check.py --base https://markjin-lab.github.io/ --deploy-sha "${{ github.event.workflow_run.head_sha }}" --json-out smoke-report.json
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: {name: smoke-report, path: smoke-report.json}

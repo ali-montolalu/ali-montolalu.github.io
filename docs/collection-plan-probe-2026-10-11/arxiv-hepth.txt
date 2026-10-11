@@ -1,0 +1,32 @@
+# probe arxiv-hepth · 2026-10-11 SGT
+# 响应头：当次实测未保存（curl 未加 -D），不补测
+# 以下为响应体前 2048 字节（已脱敏个人信息、邮箱与密钥；邮箱一律替换为 [email redacted]，作者名保留）
+# 说明：采集规划只要求去掉头像、主页链接、邮箱等，可保留公开账号名；本目录把用户名、账号名和用户 ID（含 HN 作者名与 author_ 标签、HF 用户 ID）一律打码，比要求更严，保持不改；GitHub 数字 id 与 node_id、SuttaCentral author_uid 及含译者账号的条目 id、INSPIRE 作者记录 id 也已打码；INSPIRE 作者标识（BAI、ORCID 等 ids 值）已打码；客户端 IP、WAF eventID、请求 ID、签名字段（signature_block）、页面 nonce 与验证 token/sitekey 已打码
+# 个人主页链接（GitHub/HF/HN 用户页、作者档案页、个人网站）一律替换为 [profile link redacted]
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/NRnI5uGvpeJI+WrabREldHAtwC0</id>
+  <title>arXiv Query: search_query=cat:hep-th&amp;id_list=&amp;start=0&amp;max_results=1</title>
+  <updated>2026-10-11T01:54:59Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=cat:hep-th&amp;start=0&amp;max_results=1&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>1</opensearch:itemsPerPage>
+  <opensearch:totalResults>186466</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2012.11536v1</id>
+    <title>Quantum geometric maps and their properties</title>
+    <updated>2020-12-21T17:56:33Z</updated>
+    <link href="https://arxiv.org/abs/2012.11536v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2012.11536v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Quantum geometric maps, which relate SU(2) spin networks and Lorentz covariant projected spin networks, are an important ingredient of spin foam models (and tensorial group field theories) for 4-dimensional quantum gravity. We give a general definition of such maps, that encompasses all current spin foam models, and we investigate their properties at such a general level. We then specialize the definition to see how the precise implementation of simplicity constraints affects features of the quantum geometric maps in specific models.</summary>
+    <category term="gr-qc" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="hep-th" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="math-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2020-12-21T17:56:33Z</published>
+    <arxiv:comment>26 pages</arxiv:comment>
+    <arxiv:primary_category term="gr-qc"/>
+    <author>
+      <name>Marco Finocchiaro</name>
+    </author>
+    <author>
+      <name>Yoobin Jeong
