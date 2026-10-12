@@ -462,16 +462,16 @@ class RetiredSections(SiteBase):
 class DailyGracePeriod(SiteBase):
     """Decision 2026-10-11 23:01 (quote_ref t217u): the two published dailies were deleted; dailies start
     2026-10-12. Before that date (SGT) the site may have no daily; from that date the minimum is 1 again.
-    The welcome post is never a daily."""
+    A non-date slug (e.g. 2026-10-09-note) is never a daily."""
     B = "https://ex.test/"
-    GOOD = ('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://ex.test/posts/daily/2026-10-10-welcome/</loc></url></urlset>')
+    GOOD = ('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://ex.test/posts/daily/2026-10-09-note/</loc></url></urlset>')
 
     def site(self, **extra):
         pages = {self.B: (200, "x"), self.B + "en/": (200, "x"),
                  self.B + "sitemap.xml": (200, self.GOOD), self.B + "zh/sitemap.xml": (200, self.GOOD),
                  self.B + "en/sitemap.xml": (200, self.GOOD),
-                 self.B + "posts/daily/": (200, "<a href='/posts/daily/2026-10-10-welcome/'>w</a>"),
-                 self.B + "en/posts/daily/": (200, "<a href='/en/posts/daily/2026-10-10-welcome/'>w</a>")}
+                 self.B + "posts/daily/": (200, "<a href='/posts/daily/2026-10-09-note/'>w</a>"),
+                 self.B + "en/posts/daily/": (200, "<a href='/en/posts/daily/2026-10-09-note/'>w</a>")}
         pages.update(extra)
         return pages
 
@@ -481,6 +481,7 @@ class DailyGracePeriod(SiteBase):
             return sc.discover(self.B)
 
     def test_welcome_is_not_a_daily(self):
+        self.assertIsNone(sc.DAILY_RE.match("/posts/daily/2026-10-09-note/"))
         self.assertIsNone(sc.DAILY_RE.match("/posts/daily/2026-10-10-welcome/"))
         self.assertIsNone(sc.DAILY_RE.match("/en/posts/daily/2026-10-10-welcome/"))
         self.assertIsNotNone(sc.DAILY_RE.match("/posts/daily/2026-10-12/"))
@@ -610,6 +611,11 @@ class DailyGracePeriod(SiteBase):
                     "/en/posts/daily/2026-10-10/", "/en/posts/daily/2026-10-11/"):
             self.assertIn(pth, sc.FLOOR_RETIRED_PATHS)
 
+    def test_floor_lists_retired_welcome_urls(self):
+        for pth in ("/posts/daily/2026-10-10-welcome/", "/en/posts/daily/2026-10-10-welcome/"):
+            self.assertIn(pth, sc.FLOOR_RETIRED_PATHS)
+        self.assertIn("/posts/daily/2026-10-10-welcome/", sc.FLOOR_RETIRED_PREFIXES)
+
     def test_retired_check_does_not_follow_redirects(self):
         import http.server, threading
 
@@ -631,11 +637,14 @@ class DailyGracePeriod(SiteBase):
         finally:
             srv.shutdown()
 
-    def test_retired_dailies_404_and_welcome_kept(self):
+    def test_retired_dailies_and_welcome_404(self):
+        """Welcome post deleted 2026-10-12 08:20 (王总, via Grok Bot); its zh and en URLs are retired."""
         out = self.disc(self.site(), "2026-10-11")
-        for p in ("/posts/daily/2026-10-10/", "/posts/daily/2026-10-11/", "/en/posts/daily/2026-10-10/", "/en/posts/daily/2026-10-11/"):
+        for p in ("/posts/daily/2026-10-10/", "/posts/daily/2026-10-11/", "/en/posts/daily/2026-10-10/", "/en/posts/daily/2026-10-11/",
+                  "/posts/daily/2026-10-10-welcome/", "/en/posts/daily/2026-10-10-welcome/"):
             self.assertIn(p, sc.discover.retired_ok)
-        self.assertFalse(sc.retired_hit("/posts/daily/2026-10-10-welcome/"))
+        self.assertTrue(sc.retired_hit("/posts/daily/2026-10-10-welcome/"))
+        self.assertTrue(sc.retired_hit("/en/posts/daily/2026-10-10-welcome/"))
         self.assertTrue(sc.retired_hit("/en/posts/daily/2026-10-10/"))
 
 
@@ -1689,8 +1698,8 @@ class Disclaimer(SiteBase):
 
 class R16AboutOneLiner(unittest.TestCase):
     """About page reduced to one positioning line (decision 2026-10-12 06:28 SGT)."""
-    ZH = "统一系统观在 AI 辅助加持下的认知实践与自我进化。"
-    EN = "Unified Systems View: cognitive practice and self-evolution with AI assistance."
+    ZH = "统一系统观在 AI 辅助加持下的认知实践与自我进化"
+    EN = "Unified Systems View: cognitive practice and self-evolution with AI assistance"
 
     def html(self, lang, text, sw):
         return ("<html lang=%s><body><span class=lang><a href='%s'>X</a></span><main><p>%s</p></main>"

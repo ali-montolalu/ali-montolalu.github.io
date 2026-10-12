@@ -346,11 +346,13 @@ DISCOVERY_CONFIG = os.path.join(os.path.dirname(os.path.abspath(__file__)), "smo
 DEFAULT_DISCOVERY = {"expected_sitemaps": ["/sitemap.xml", "/zh/sitemap.xml", "/en/sitemap.xml"],
                      "min_pages": {"daily": 1},
                      "daily_min_effective_from": "2026-10-12T07:00",
-                     "retired_prefixes": ["/posts/tongyi/", "/framework/", "/posts/daily/2026-10-10/", "/posts/daily/2026-10-11/"],
+                     "retired_prefixes": ["/posts/tongyi/", "/framework/", "/posts/daily/2026-10-10/", "/posts/daily/2026-10-11/",
+                                          "/posts/daily/2026-10-10-welcome/"],
                      "retired_paths": ["/posts/tongyi/", "/framework/", "/framework/macro/",
                                        "/en/framework/", "/en/framework/macro/", "/en/posts/tongyi/",
                                        "/posts/daily/2026-10-10/", "/posts/daily/2026-10-11/",
-                                       "/en/posts/daily/2026-10-10/", "/en/posts/daily/2026-10-11/"]}
+                                       "/en/posts/daily/2026-10-10/", "/en/posts/daily/2026-10-11/",
+                                       "/posts/daily/2026-10-10-welcome/", "/en/posts/daily/2026-10-10-welcome/"]}
 
 
 def load_discovery_config(path=None):
@@ -466,8 +468,8 @@ def scan_sources(base, expected_sitemaps=None):
     return errors
 
 
-# A daily post's slug is exactly its date (YYYY-MM-DD). Anything else under /posts/daily/ -- e.g. the
-# welcome post 2026-10-10-welcome -- is NOT a daily and never counts toward the daily minimum or pairing.
+# A daily post's slug is exactly its date (YYYY-MM-DD). Anything else under /posts/daily/ (e.g. the
+# retired welcome post 2026-10-10-welcome) is NOT a daily and never counts toward the daily minimum or pairing.
 DAILY_RE = re.compile(r"^(?:/en)?/posts/daily/(\d{4}-\d{2}-\d{2})/$")
 
 
@@ -1035,10 +1037,12 @@ FLOOR_DAILY_EFFECTIVE_EARLIEST = "2026-10-12T07:00"   # SGT; first publication -
 CAP_DAILY_EFFECTIVE_LATEST = "2026-10-19T07:00"       # SGT; nor can it be postponed past one week after that
 DISCLAIMER = {"zh": "本文不含投资建议。", "en": "This article does not constitute investment advice."}
 DISCLAIMER_TYPES = ("daily", "macro", "cards")
-FLOOR_RETIRED_PREFIXES = ("/posts/tongyi/", "/framework/", "/posts/daily/2026-10-10/", "/posts/daily/2026-10-11/")
+FLOOR_RETIRED_PREFIXES = ("/posts/tongyi/", "/framework/", "/posts/daily/2026-10-10/", "/posts/daily/2026-10-11/",
+                          "/posts/daily/2026-10-10-welcome/")
 FLOOR_RETIRED_PATHS = ("/posts/tongyi/", "/framework/macro/", "/en/framework/macro/",
                        "/posts/daily/2026-10-10/", "/posts/daily/2026-10-11/",
-                       "/en/posts/daily/2026-10-10/", "/en/posts/daily/2026-10-11/")
+                       "/en/posts/daily/2026-10-10/", "/en/posts/daily/2026-10-11/",
+                       "/posts/daily/2026-10-10-welcome/", "/en/posts/daily/2026-10-10-welcome/")
 TIME_GROUP = r"(?P<T>(?:[01]?\d|2[0-3])[:：][0-5]\d)"
 
 

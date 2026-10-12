@@ -1,5 +1,5 @@
 {
-  "_comment": "Discovery scope for scripts/smoke_check.py (runs after each deploy, on manual dispatch, and daily at 07:15 SGT by schedule). expected_sitemaps: site paths (relative to --base) that every deploy must serve as a valid sitemap (urlset or sitemapindex with at least one <loc>); a 404, non-200, empty, unparsable or non-sitemap response FAILs. min_pages: minimum number of discovered pages per type (daily only); fewer FAILs. retired_prefixes: taken-down sections; no home page, expected sitemap or checked page may link to or list a path under them (zh or /en form). retired_paths: every listed path must answer HTTP 404. Rule change 2026-10-11: the 统一系统观 series and the macro framework pages were taken down (decision 22:39 via Grok Bot, quote_ref t212u); the framework-page minimum was removed. Maintained by markjin 生产与发布 together with the site layout. daily_min_effective_from (YYYY-MM-DDTHH:MM, SGT): before this instant no daily is required and a site with no daily passes; from then on min_pages.daily applies AND the daily of the current SGT date (from 07:00 SGT; before 07:00 the previous day's) must exist in zh and en as a pair; the code allows an instant no earlier than 2026-10-12T07:00 (first publication) and no later than 2026-10-19T07:00 (one-week cap), and clamps to that range at run time. Retired paths are checked without following redirects. A daily is a page whose slug is exactly YYYY-MM-DD (the welcome post does not count). Rule change 2026-10-11 23:01 (via Grok Bot, quote_ref t217u): the two published dailies 2026-10-10 and 2026-10-11 were deleted; their URLs are retired.",
+  "_comment": "Discovery scope for scripts/smoke_check.py (runs after each deploy, on manual dispatch, and daily at 07:15 SGT by schedule). expected_sitemaps: site paths (relative to --base) that every deploy must serve as a valid sitemap (urlset or sitemapindex with at least one <loc>); a 404, non-200, empty, unparsable or non-sitemap response FAILs. min_pages: minimum number of discovered pages per type (daily only); fewer FAILs. retired_prefixes: taken-down sections; no home page, expected sitemap or checked page may link to or list a path under them (zh or /en form). retired_paths: every listed path must answer HTTP 404. Rule change 2026-10-11: the 统一系统观 series and the macro framework pages were taken down (decision 22:39 via Grok Bot, quote_ref t212u); the framework-page minimum was removed. Maintained by markjin 生产与发布 together with the site layout. daily_min_effective_from (YYYY-MM-DDTHH:MM, SGT): before this instant no daily is required and a site with no daily passes; from then on min_pages.daily applies AND the daily of the current SGT date (from 07:00 SGT; before 07:00 the previous day's) must exist in zh and en as a pair; the code allows an instant no earlier than 2026-10-12T07:00 (first publication) and no later than 2026-10-19T07:00 (one-week cap), and clamps to that range at run time. Retired paths are checked without following redirects. A daily is a page whose slug is exactly YYYY-MM-DD. Rule change 2026-10-11 23:01 (via Grok Bot, quote_ref t217u): the two published dailies 2026-10-10 and 2026-10-11 were deleted; their URLs are retired. Rule change 2026-10-12 08:20 (王总, via Grok Bot): the welcome post 2026-10-10-welcome (zh and en) was deleted; its URLs are retired.",
   "expected_sitemaps": [
     "/sitemap.xml",
     "/zh/sitemap.xml",
@@ -12,7 +12,8 @@
     "/posts/tongyi/",
     "/framework/",
     "/posts/daily/2026-10-10/",
-    "/posts/daily/2026-10-11/"
+    "/posts/daily/2026-10-11/",
+    "/posts/daily/2026-10-10-welcome/"
   ],
   "retired_paths": [
     "/posts/tongyi/",
@@ -28,7 +29,9 @@
     "/posts/daily/2026-10-10/",
     "/posts/daily/2026-10-11/",
     "/en/posts/daily/2026-10-10/",
-    "/en/posts/daily/2026-10-11/"
+    "/en/posts/daily/2026-10-11/",
+    "/posts/daily/2026-10-10-welcome/",
+    "/en/posts/daily/2026-10-10-welcome/"
   ],
   "daily_min_effective_from": "2026-10-12T07:00"
 }
