@@ -1690,7 +1690,7 @@ class Disclaimer(SiteBase):
 class R16AboutOneLiner(unittest.TestCase):
     """About page reduced to one positioning line (decision 2026-10-12 06:28 SGT)."""
     ZH = "统一系统观在 AI 辅助加持下的认知实践与自我进化。"
-    EN = "Cognitive practice and self-evolution of the Unified Systems View, augmented by AI assistance."
+    EN = "Unified Systems View: cognitive practice and self-evolution with AI assistance."
 
     def html(self, lang, text, sw):
         return ("<html lang=%s><body><span class=lang><a href='%s'>X</a></span><main><p>%s</p></main>"
